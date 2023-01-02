@@ -55,7 +55,8 @@ enum JourdeSemaine{
 namespace ConsoleApp{    
     internal static class Program{
         public static void Main(string[] args){
-            Console.WriteLine("Entrer un nombre");
+        
+           /* Console.WriteLine("Entrer un nombre");
             int nb1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Entrer un autre nombre");
             int nb2 =Convert.ToInt32(Console.ReadLine());
@@ -63,7 +64,61 @@ namespace ConsoleApp{
                 Console.WriteLine(nb1 + " est plus grand");
             }else{
                 Console.WriteLine(nb2 + " est plus grand");
+            }*/
+
+           
+           
+            /*
+           int note = 101; 
+           while(note > 100) { 
+                Console.WriteLine("Entrer la note");
+                 note = Convert.ToInt32(Console.ReadLine());
             }
+            if (note >= 60){
+                 Console.WriteLine("pass");
+            }else{
+                Console.WriteLine("fail");
+            }*/
+
+
+            /*
+            Random rnd = new Random();
+            int numberRandom = rnd.Next(1, 100);
+            Console.WriteLine(numberRandom);
+            Console.WriteLine("Entrer un nombre");
+            int numberUser = Convert.ToInt32(Console.ReadLine());
+            while(numberUser != numberRandom) { 
+                Console.WriteLine("Incorrect, try again");
+                numberUser = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("Correct!");*/
+          
+          
+          /*  
+            Console.WriteLine("Entrer un nombre");
+            int numberUser = Convert.ToInt32(Console.ReadLine()); 
+            Console.WriteLine(numberUser);
+           for (int i = 1; i < 13; i++){
+            Console.Write( numberUser+"x"+i+"=" + i*numberUser+"\n");
+           }
+           */
+
+        
+             Console.WriteLine("Entrer un nombre");
+            int nb1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Entrer un autre nombre");
+            int nb2 = Convert.ToInt32(Console.ReadLine());
+            int result = nb2 * nb1;
+            Console.WriteLine("Le resultat est de "+result);
+            while(result <= 1000){
+                Console.WriteLine("Entrer un multiplicateur");
+               int nbx = Convert.ToInt32(Console.ReadLine());
+              result = result * nbx;  
+            Console.WriteLine("Le resultat est de "+result);
+            }
+        
+
+        
         }
     }
 }
