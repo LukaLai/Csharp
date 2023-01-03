@@ -49,14 +49,19 @@ enum JourdeSemaine{
     Samedi,
     Dimanche
 }
- 
 */
+
+
+
  using System;
 namespace ConsoleApp{    
     internal static class Program{
+            
         public static void Main(string[] args){
         
-           /* Console.WriteLine("Entrer un nombre");
+        void Exercice1(){
+
+            Console.WriteLine("Entrer un nombre");
             int nb1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Entrer un autre nombre");
             int nb2 =Convert.ToInt32(Console.ReadLine());
@@ -64,13 +69,13 @@ namespace ConsoleApp{
                 Console.WriteLine(nb1 + " est plus grand");
             }else{
                 Console.WriteLine(nb2 + " est plus grand");
-            }*/
-
-           
-           
-            /*
-           int note = 101; 
-           while(note > 100) { 
+            }
+        }
+        
+        void Exercice2(){
+            int note = 101; 
+            
+            while(note > 100) { 
                 Console.WriteLine("Entrer la note");
                  note = Convert.ToInt32(Console.ReadLine());
             }
@@ -78,12 +83,14 @@ namespace ConsoleApp{
                  Console.WriteLine("pass");
             }else{
                 Console.WriteLine("fail");
-            }*/
+            }
+        }    
 
-
-            /*
+        void Exercice3(){
+            
             Random rnd = new Random();
             int numberRandom = rnd.Next(1, 100);
+            
             Console.WriteLine(numberRandom);
             Console.WriteLine("Entrer un nombre");
             int numberUser = Convert.ToInt32(Console.ReadLine());
@@ -91,20 +98,21 @@ namespace ConsoleApp{
                 Console.WriteLine("Incorrect, try again");
                 numberUser = Convert.ToInt32(Console.ReadLine());
             }
-            Console.WriteLine("Correct!");*/
-          
-          
-          /*  
+            Console.WriteLine("Correct!");
+        }
+
+        void Exercice4(){
             Console.WriteLine("Entrer un nombre");
             int numberUser = Convert.ToInt32(Console.ReadLine()); 
             Console.WriteLine(numberUser);
-           for (int i = 1; i < 13; i++){
-            Console.Write( numberUser+"x"+i+"=" + i*numberUser+"\n");
-           }
-           */
-
-        /*
-             Console.WriteLine("Entrer un nombre");
+            for (int i = 1; i < 13; i++){
+                Console.Write( numberUser+"x"+i+"=" + i*numberUser+"\n");
+            }
+        }
+           
+        void Exercice5(){
+            
+            Console.WriteLine("Entrer un nombre");
             int nb1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Entrer un autre nombre");
             int nb2 = Convert.ToInt32(Console.ReadLine());
@@ -116,13 +124,54 @@ namespace ConsoleApp{
               result = result * nbx;  
             Console.WriteLine("Le resultat est de "+result);
             }
-                */
-            
-              int[] tableau = new int[10] {1,2,3,4,5,6,7,8,9,10};  
+        }  
+        
+        void Exercice6(){
+            int[] tableau = new int[10] {1,2,3,4,5,6,7,8,9,10};  
               for (int i = 0; i < 11; i++)
                 {
                     Console.Write(i);
                 }
         }
+        
+        void Pendu(){
+
+            string motATrouver;
+            string lettre;
+            int longeurMot;
+            string[] mask;
+            string joueur1;
+            string joueur2;
+            int essai = 0;
+            bool gagner = false;
+            string motCache = "";
+ 
+            Console.WriteLine("Nom du joueur 1 ?");
+            joueur1 = Console.ReadLine();
+             
+ 
+            Console.WriteLine("Nom du joueur 2 ?");
+            joueur2 = Console.ReadLine();
+             
+ 
+            Console.WriteLine(joueur1 + " ,veuillez entrer un mot pour "+joueur2);
+            motATrouver = Console.ReadLine();
+            Console.Clear();
+            int tailleMot = motATrouver.Length;
+ 
+            string[] tableauMot = new string[tailleMot];
+
+            foreach(string c in tableauMot){
+                Console.WriteLine(c);
+            }
+            
+             for (int a = 0; a < tailleMot; a++){
+                 motCache = motCache +"*";
+             }
+             Console.WriteLine("Mot à trouver : \n"+motCache);
+            
+            Console.WriteLine(joueur2+" A vous de jouez");
+            }
+        }       
     }
 }
