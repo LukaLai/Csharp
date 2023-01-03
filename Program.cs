@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 /*Console.WriteLine("Hello, World!");
 
 Test C1 = new Test();
@@ -52,8 +52,8 @@ enum JourdeSemaine{
 */
 
 
-
- using System;
+using System.Collections.Generic;
+using System;
 namespace ConsoleApp{    
     internal static class Program{
             
@@ -137,15 +137,14 @@ namespace ConsoleApp{
         void Pendu(){
 
             string motATrouver;
-            string lettre;
-            int longeurMot;
-            string[] mask;
             string joueur1;
             string joueur2;
-            int essai = 0;
-            bool gagner = false;
+            char lettreentre;
             string motCache = "";
- 
+            List<char> Lettres = new List<char>();     
+            int essai =0;
+            bool gagne = false;
+
             Console.WriteLine("Nom du joueur 1 ?");
             joueur1 = Console.ReadLine();
              
@@ -158,20 +157,49 @@ namespace ConsoleApp{
             motATrouver = Console.ReadLine();
             Console.Clear();
             int tailleMot = motATrouver.Length;
- 
-            string[] tableauMot = new string[tailleMot];
-
-            foreach(string c in tableauMot){
-                Console.WriteLine(c);
-            }
-            
+        
              for (int a = 0; a < tailleMot; a++){
                  motCache = motCache +"*";
              }
-             Console.WriteLine("Mot à trouver : \n"+motCache);
+            Console.WriteLine("Mot à trouver : \n"+motCache);
             
-            Console.WriteLine(joueur2+" A vous de jouez");
+            foreach(char c in motATrouver){
+                Lettres.Add(c);
             }
+            //Lettres.ForEach(Console.WriteLine); //console.LOG
+
+             Console.WriteLine(joueur2+" A vous de jouez");
+                
+            
+            while(essai <= 6 && gagne==false){
+                Console.WriteLine("Entrer une lettre");
+                lettreentre = Console.ReadLine()[0];
+                
+                if (Lettres.Contains(lettreentre)){
+                    Lettres.RemoveAll(e => e == lettreentre); // Enleve toutes les lettres de ma liste
+                }else{
+                    essai++;
+                }
+                foreach(char p in motATrouver){
+                    if(Lettres.Contains(p)){
+                        Console.Write(" _ ");
+                    }else{
+                        Console.Write(p);
+                    }
+                }
+                Console.WriteLine("\n Il vous reste "+(6-essai)+" essais restants");
+
+                if(Lettres.Count == 0){
+                        gagne = true;
+                    Console.WriteLine("Bravo, vous avez gagné");
+                }
+                if(essai==6){
+                    Console.WriteLine("Dommage, vous avez perdu");
+                }
+            }
+        }
+            Pendu();
+            
         }       
     }
 }
