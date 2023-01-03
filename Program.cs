@@ -49,8 +49,8 @@ enum JourdeSemaine{
     Samedi,
     Dimanche
 }
- */
-
+ 
+*/
  using System;
 namespace ConsoleApp{    
     internal static class Program{
@@ -103,7 +103,7 @@ namespace ConsoleApp{
            }
            */
 
-        
+        /*
              Console.WriteLine("Entrer un nombre");
             int nb1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Entrer un autre nombre");
@@ -116,9 +116,13 @@ namespace ConsoleApp{
               result = result * nbx;  
             Console.WriteLine("Le resultat est de "+result);
             }
-        
-
-        
+                */
+            
+              int[] tableau = new int[10] {1,2,3,4,5,6,7,8,9,10};  
+              for (int i = 0; i < 11; i++)
+                {
+                    Console.Write(i);
+                }
         }
     }
 }
