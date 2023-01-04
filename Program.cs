@@ -54,152 +54,283 @@ enum JourdeSemaine{
 
 using System.Collections.Generic;
 using System;
-namespace ConsoleApp{    
-    internal static class Program{
-            
-        public static void Main(string[] args){
-        
-        void Exercice1(){
+namespace ConsoleApp
+{
 
-            Console.WriteLine("Entrer un nombre");
-            int nb1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Entrer un autre nombre");
-            int nb2 =Convert.ToInt32(Console.ReadLine());
-            if (nb1 > nb2){
-                Console.WriteLine(nb1 + " est plus grand");
-            }else{
-                Console.WriteLine(nb2 + " est plus grand");
-            }
-        }
-        
-        void Exercice2(){
-            int note = 101; 
-            
-            while(note > 100) { 
-                Console.WriteLine("Entrer la note");
-                 note = Convert.ToInt32(Console.ReadLine());
-            }
-            if (note >= 60){
-                 Console.WriteLine("pass");
-            }else{
-                Console.WriteLine("fail");
-            }
-        }    
+    public class Voiture
+    {
+        public string marque;
+        public string modele;
+        public int nbPortes;
+        public string couleur;
 
-        void Exercice3(){
-            
-            Random rnd = new Random();
-            int numberRandom = rnd.Next(1, 100);
-            
-            Console.WriteLine(numberRandom);
-            Console.WriteLine("Entrer un nombre");
-            int numberUser = Convert.ToInt32(Console.ReadLine());
-            while(numberUser != numberRandom) { 
-                Console.WriteLine("Incorrect, try again");
-                numberUser = Convert.ToInt32(Console.ReadLine());
-            }
-            Console.WriteLine("Correct!");
+        public Voiture(string marque, string modele, int nbPortes, string couleur){
+            this.marque = marque;
+            this.modele = modele;
+            this.nbPortes = nbPortes;
+            this.couleur = couleur;
         }
+        public void Description()
+        {
+            Console.WriteLine("La voiture est une "+marque+" "+modele+" avec "+ nbPortes +" portes de couleur "+couleur+".");
+        }
+        /*
+        public int Sum(int a, int b) 
+        {
+            return a + b;
+        }*/ 
+        // Voiture maBugati = new Voiture("Chiron", 5);
+        // maBugati.Description()
+        // int FourPlusSix = maBugati.Sum(4, 6);
+    }
+    
+    public class Etudiant{
+        public string nom;
+        public string prenom;
+        public int age;
+         public Etudiant(string nom, string prenom, int age){
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+        }
+         public void Saluer()
+        {
+            Console.WriteLine("Bonjour, je m'appelle "+nom+" "+prenom+" et j'ai "+age+" ans.");
+        }
+    }
 
-        void Exercice4(){
-            Console.WriteLine("Entrer un nombre");
-            int numberUser = Convert.ToInt32(Console.ReadLine()); 
-            Console.WriteLine(numberUser);
-            for (int i = 1; i < 13; i++){
-                Console.Write( numberUser+"x"+i+"=" + i*numberUser+"\n");
-            }
+    public class CompteBancaire{
+        public string nomTitulaire;
+        public float solde;
+
+        public CompteBancaire(string nomTitulaire, float solde){
+            this.nomTitulaire = nomTitulaire;
+            this.solde = solde;
         }
-           
-        void Exercice5(){
-            
-            Console.WriteLine("Entrer un nombre");
-            int nb1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Entrer un autre nombre");
-            int nb2 = Convert.ToInt32(Console.ReadLine());
-            int result = nb2 * nb1;
-            Console.WriteLine("Le resultat est de "+result);
-            while(result <= 1000){
-                Console.WriteLine("Entrer un multiplicateur");
-               int nbx = Convert.ToInt32(Console.ReadLine());
-              result = result * nbx;  
-            Console.WriteLine("Le resultat est de "+result);
+        public void Deposer(float versement){
+            solde =+ versement;
+        }
+        public void Retirer(float retrait){
+            solde =- retrait;
+        }
+    }
+
+    public class Calculatrice{
+        public int a;
+        public int b;
+        public int Additionner(int a, int b){
+            return a+b;
+        }
+        public int Multiplier(int a, int b){
+            return a*b;
+        }
+    }
+    public class Rectangle{
+        public float largeur;
+        public float hauteur;
+        public float Aire(float largeur, float hauteur){
+            return largeur*hauteur;
+        }
+        public float Perimetre(float largeur, float hauteur){
+            return largeur*2 + hauteur*2;
+        }
+    }
+    public interface Volant{
+        public string Voler(){  
+            return "Je suis en train de voler!";
+        }
+    }
+    public class Oiseau : Volant{
+       public string nom;
+       public Oiseau(string nom){
+            this.nom = nom;
+       }
+       public string Description(string nom){
+         return "Je suis un oiseau de nom"+nom;
+       }
+    }
+
+    internal static class Program
+    {
+        public static void Main(string[] args)
+        {
+
+
+            // Exercices de base
+
+            void Exercice1()
+            {
+
+                Console.WriteLine("Entrer un nombre");
+                int nb1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Entrer un autre nombre");
+                int nb2 = Convert.ToInt32(Console.ReadLine());
+                if (nb1 > nb2)
+                {
+                    Console.WriteLine(nb1 + " est plus grand");
+                }
+                else
+                {
+                    Console.WriteLine(nb2 + " est plus grand");
+                }
             }
-        }  
-        
-        void Exercice6(){
-            int[] tableau = new int[10] {1,2,3,4,5,6,7,8,9,10};  
-              for (int i = 0; i < 11; i++)
+
+            void Exercice2()
+            {
+                int note = 101;
+
+                while (note > 100)
+                {
+                    Console.WriteLine("Entrer la note");
+                    note = Convert.ToInt32(Console.ReadLine());
+                }
+                if (note >= 60)
+                {
+                    Console.WriteLine("pass");
+                }
+                else
+                {
+                    Console.WriteLine("fail");
+                }
+            }
+
+            void Exercice3()
+            {
+
+                Random rnd = new Random();
+                int numberRandom = rnd.Next(1, 100);
+
+                Console.WriteLine(numberRandom);
+                Console.WriteLine("Entrer un nombre");
+                int numberUser = Convert.ToInt32(Console.ReadLine());
+                while (numberUser != numberRandom)
+                {
+                    Console.WriteLine("Incorrect, try again");
+                    numberUser = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.WriteLine("Correct!");
+            }
+
+            void Exercice4()
+            {
+                Console.WriteLine("Entrer un nombre");
+                int numberUser = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(numberUser);
+                for (int i = 1; i < 13; i++)
+                {
+                    Console.Write(numberUser + "x" + i + "=" + i * numberUser + "\n");
+                }
+            }
+
+            void Exercice5()
+            {
+
+                Console.WriteLine("Entrer un nombre");
+                int nb1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Entrer un autre nombre");
+                int nb2 = Convert.ToInt32(Console.ReadLine());
+                int result = nb2 * nb1;
+                Console.WriteLine("Le resultat est de " + result);
+                while (result <= 1000)
+                {
+                    Console.WriteLine("Entrer un multiplicateur");
+                    int nbx = Convert.ToInt32(Console.ReadLine());
+                    result = result * nbx;
+                    Console.WriteLine("Le resultat est de " + result);
+                }
+            }
+
+            void Exercice6()
+            {
+                int[] tableau = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+                for (int i = 0; i < 11; i++)
                 {
                     Console.Write(i);
                 }
-        }
-        
-        void Pendu(){
-
-            string motATrouver;
-            string joueur1;
-            string joueur2;
-            char lettreentre;
-            string motCache = "";
-            List<char> Lettres = new List<char>();     
-            int essai =0;
-            bool gagne = false;
-
-            Console.WriteLine("Nom du joueur 1 ?");
-            joueur1 = Console.ReadLine();
-             
- 
-            Console.WriteLine("Nom du joueur 2 ?");
-            joueur2 = Console.ReadLine();
-             
- 
-            Console.WriteLine(joueur1 + " ,veuillez entrer un mot pour "+joueur2);
-            motATrouver = Console.ReadLine();
-            Console.Clear();
-            int tailleMot = motATrouver.Length;
-        
-             for (int a = 0; a < tailleMot; a++){
-                 motCache = motCache +"*";
-             }
-            Console.WriteLine("Mot à trouver : \n"+motCache);
-            
-            foreach(char c in motATrouver){
-                Lettres.Add(c);
             }
-            //Lettres.ForEach(Console.WriteLine); //console.LOG
+            void Pendu()
+            {
 
-             Console.WriteLine(joueur2+" A vous de jouez");
-                
-            
-            while(essai <= 6 && gagne==false){
-                Console.WriteLine("Entrer une lettre");
-                lettreentre = Console.ReadLine()[0];
-                
-                if (Lettres.Contains(lettreentre)){
-                    Lettres.RemoveAll(e => e == lettreentre); // Enleve toutes les lettres de ma liste
-                }else{
-                    essai++;
+                string motATrouver;
+                string joueur1;
+                string joueur2;
+                char lettreentre;
+                string motCache = "";
+                List<char> Lettres = new List<char>();
+                int essai = 0;
+                bool gagne = false;
+
+                Console.WriteLine("Nom du joueur 1 ?");
+                joueur1 = Console.ReadLine();
+
+
+                Console.WriteLine("Nom du joueur 2 ?");
+                joueur2 = Console.ReadLine();
+
+
+                Console.WriteLine(joueur1 + " ,veuillez entrer un mot pour " + joueur2);
+                motATrouver = Console.ReadLine();
+                Console.Clear();
+                int tailleMot = motATrouver.Length;
+
+                for (int a = 0; a < tailleMot; a++)
+                {
+                    motCache = motCache + "*";
                 }
-                foreach(char p in motATrouver){
-                    if(Lettres.Contains(p)){
-                        Console.Write(" _ ");
-                    }else{
-                        Console.Write(p);
+                Console.WriteLine("Mot à trouver : \n" + motCache);
+
+                foreach (char c in motATrouver)
+                {
+                    Lettres.Add(c);
+                }
+                //Lettres.ForEach(Console.WriteLine); //console.LOG
+
+                Console.WriteLine(joueur2 + " A vous de jouez");
+
+
+                while (essai <= 6 && gagne == false)
+                {
+                    Console.WriteLine("Entrer une lettre");
+                    lettreentre = Console.ReadLine()[0];
+
+                    if (Lettres.Contains(lettreentre))
+                    {
+                        Lettres.RemoveAll(e => e == lettreentre); // Enleve toutes les lettres de ma liste
+                    }
+                    else
+                    {
+                        essai++;
+                    }
+                    foreach (char p in motATrouver)
+                    {
+                        if (Lettres.Contains(p))
+                        {
+                            Console.Write(" _ ");
+                        }
+                        else
+                        {
+                            Console.Write(p);
+                        }
+                    }
+                    Console.WriteLine("\n Il vous reste " + (6 - essai) + " essais restants");
+
+                    if (Lettres.Count == 0)
+                    {
+                        gagne = true;
+                        Console.WriteLine("Bravo, vous avez gagné");
+                    }
+                    if (essai == 6)
+                    {
+                        Console.WriteLine("Dommage, vous avez perdu");
+                        return;
                     }
                 }
-                Console.WriteLine("\n Il vous reste "+(6-essai)+" essais restants");
-
-                if(Lettres.Count == 0){
-                        gagne = true;
-                    Console.WriteLine("Bravo, vous avez gagné");
-                }
-                if(essai==6){
-                    Console.WriteLine("Dommage, vous avez perdu");
-                }
             }
+            //Pendu();
+        Voiture maBugati = new Voiture("Peugeot","Ibiza",10,"bleu");
+        maBugati.Description();
+        Etudiant unEtudiant = new Etudiant("Pierre","Paul",10);
+        unEtudiant.Saluer();
         }
-            Pendu();
-            
-        }       
     }
 }
