@@ -56,7 +56,15 @@ using System.Collections.Generic;
 using System;
 namespace ConsoleApp
 {
-
+               enum JourdeSemaine{
+                    Lundi,
+                    Mardi,
+                    Mercredi,
+                    Jeudi,
+                    Vendredi,
+                    Samedi,
+                    Dimanche
+                }
     public class Voiture
     {
         public string marque;
@@ -157,7 +165,6 @@ namespace ConsoleApp
 
 
             // Exercices de base
-
             void Exercice1()
             {
 
@@ -248,6 +255,105 @@ namespace ConsoleApp
                     Console.Write(i);
                 }
             }
+
+            void Exercice7(){
+                int[] tableau = new int[10];
+                Console.WriteLine("Entrer 10 nombres");
+                for (int i = 0; i < 10; i++)
+                {
+                    tableau[i] = int.Parse(Console.ReadLine());
+                }
+
+                foreach (int a in tableau)
+                {
+                    Console.Write(a);
+                }
+            }
+
+            void Exercice8(){
+                string[] couleurs = {"bleu", "jaune", "rouge", "marron", "vert"};
+                int i = 0;
+                while (i < couleurs.Length){
+                Console.WriteLine(couleurs[i]);
+                i++;
+                }
+            }
+
+            void Exercice9(){
+                double[] nombres = { 1.5, 2.5, 3.5, 4.5, 5.5 };
+                double somme = 0;
+                int i = 0;
+                    do{
+                        somme += nombres[i];
+                        i++;
+                    }
+                    while (i < nombres.Length);
+                        Console.WriteLine("La somme est de: "+somme);
+
+            }
+
+            void Exercice10(){
+                int[] nombres = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+            for (int i = 0; i < nombres.Length; i++){
+                if (nombres[i] % 3 == 0 && nombres[i] % 5 == 0){
+                    Console.WriteLine("Le premier nombre divisible est: " + nombres[i]);
+                }
+            }
+            }
+            void Exercice11(){
+                const int maxjours = 365;
+
+                Console.WriteLine("Entrez votre age");
+                int age = Convert.ToInt32(Console.ReadLine());
+
+                int joursaccumule = age * maxjours;
+                Console.WriteLine("vous avez "+joursaccumule );
+            }
+
+            void Exercice12(){
+                const int scdparmin = 60;
+
+            Console.Write("Entrez le temps en min et sec");
+            string tempsUser = Console.ReadLine();
+
+            string[] TabTemps = tempsUser.Split(',');
+            int minutes = int.Parse(TabTemps[0]);
+            int secondes = int.Parse(TabTemps[1]);
+            int totalScd = minutes * scdparmin + secondes;
+            Console.WriteLine($"{minutes} minutes et {secondes} secondes = {totalScd} secondes");
+            }
+            
+            void Exercice13(){
+                Console.WriteLine("Saisir une température:");
+                int temperature = Convert.ToInt32(Console.ReadLine());
+
+                switch (temperature){
+                    case int n when (n > 30):
+                    Console.WriteLine("Chaude");
+                    break;
+                    case int n when (n >= 21 && n <= 30):
+                    Console.WriteLine("Tiede");
+                    break;
+                    case int n when (n >= 10 && n < 21):
+                    Console.WriteLine("Fraiche");
+                    break;
+                    case int n when (n < 10):
+                    Console.WriteLine("Froide");
+                    break;
+                    }
+            }
+
+            void Program1(){
+                Console.WriteLine("Entrez votre nom");
+                string nom = Console.ReadLine();
+
+                Console.WriteLine("Entrez votre age");
+                int age = Convert.ToInt32(Console.ReadLine());
+
+                int anne = 100 - age;
+                Console.WriteLine(nom+",il vous reste "+anne+" ans avant d'avoir 100 ans");
+            }
+
             void Pendu()
             {
 
@@ -326,6 +432,8 @@ namespace ConsoleApp
                     }
                 }
             }
+
+
             //Pendu();
         Voiture maBugati = new Voiture("Peugeot","Ibiza",10,"bleu");
         maBugati.Description();
