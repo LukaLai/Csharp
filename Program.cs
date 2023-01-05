@@ -368,6 +368,18 @@ namespace ConsoleApp
             string chaine = Console.ReadLine();
             }
 
+            void Program4(){
+            
+            Console.WriteLine("Entrez un mot :");
+            string mot = Console.ReadLine();
+            string motinverse = "";
+            for (int i = mot.Length - 1; i >= 0; i--)
+            {
+                motinverse += mot[i];
+            }
+            Console.WriteLine("Le mot inversé est:" + motinverse);
+        }
+
             void Pendu()
             {
                 string motATrouver;
@@ -379,11 +391,17 @@ namespace ConsoleApp
                 int essai = 0;
                 bool gagne = false;
 
-                Console.WriteLine("Nom du joueur 1 ?");
+                Console.WriteLine(@"
+                Le jeu du pendu, règles du jeu:
+                Deux joueurs s'affrontent, le joueur 1 choisi un mot à l'abri du regard du joueur 2.
+                Le joueur 2 a 6 essais pour trouver toutes les lettres du mot.
+                Sinon, c'est perdu.
+                ");
+                Console.WriteLine("Entrer le nom du joueur 1:");
                 joueur1 = Console.ReadLine();
 
 
-                Console.WriteLine("Nom du joueur 2 ?");
+                Console.WriteLine("Entrer le nom du joueur 2:");
                 joueur2 = Console.ReadLine();
 
 
@@ -396,7 +414,7 @@ namespace ConsoleApp
                 {
                     motCache = motCache + "*";
                 }
-                Console.WriteLine("Mot à trouver : \n" + motCache);
+                Console.WriteLine("C'est partit, mot à trouver: \n" + motCache);
 
                 foreach (char c in motATrouver)
                 {
@@ -440,20 +458,27 @@ namespace ConsoleApp
                     }
                     if (essai == 6)
                     {
-                        Console.WriteLine("Dommage, vous avez perdu");
+                        Console.WriteLine("Dommage, vous avez perdu. You are ");
+                        Console.WriteLine(@" 
+                        ░╔═════╗░░╔═════╗╔══╗░░╔═╗╔══════╗░░░░░╔═╗ 
+                        ╔╝██████╗╔╝██████║███╗░║██╚███████░░░░░║██ 
+                        ║██░░░║██║██░░║██║████╗║██░░╔══╝██░╔═══╝██ 
+                        ║██░░░║██║██░░║██║██╚██╝██░░╚█████╔╝██████ 
+                        ║██░░░║██╚██══╝██║██░╚████╔════╝██╚██══╝██ 
+                        ╚██░░░╚██░╚██████╚██░░╚███╚███████░╚██████");
                         return;
                     }
                 }
             }
 
-            //Pendu();
+            Pendu();
         /*
         Voiture maBugati = new Voiture("Peugeot","Ibiza",10,"bleu");
         maBugati.Description();
         Etudiant unEtudiant = new Etudiant("Pierre","Paul",10);
         unEtudiant.Saluer();
         */
-        Program3();
+       // Console.WriteLine(@$"{@$"@${"bonjour"}"}"); 
         }
     }
 }
