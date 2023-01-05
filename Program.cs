@@ -354,9 +354,22 @@ namespace ConsoleApp
                 Console.WriteLine(nom+",il vous reste "+anne+" ans avant d'avoir 100 ans");
             }
 
+            void Program2(){
+                for (int i = 1; i <= 9; i++){
+                    for (int j = 1; j <= 9; j++){
+                        Console.Write(i * j + " ");
+                    }
+                Console.WriteLine();
+                }
+            }
+
+            void Program3(){
+                Console.WriteLine("Entrer une serie de nombres avec le <,> entre");
+            string chaine = Console.ReadLine();
+            }
+
             void Pendu()
             {
-
                 string motATrouver;
                 string joueur1;
                 string joueur2;
@@ -433,12 +446,14 @@ namespace ConsoleApp
                 }
             }
 
-
             //Pendu();
+        /*
         Voiture maBugati = new Voiture("Peugeot","Ibiza",10,"bleu");
         maBugati.Description();
         Etudiant unEtudiant = new Etudiant("Pierre","Paul",10);
         unEtudiant.Saluer();
+        */
+        Program3();
         }
     }
 }
